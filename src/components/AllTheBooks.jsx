@@ -5,18 +5,27 @@ import books from "../data/fantasy.json";
 class AllTheBooks extends Component {
   render() {
     return (
-      <Container>
-        <Row>
+      <Container fluid>
+        <Row className="row-cols-3 row-cols-md-6 row-cols-lg-9">
           {books.map((book) => {
-            console.log(books.length);
             return (
-              <Col>
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={book.img} />
-                  <Card.Body>
-                    <Card.Title>{book.title}</Card.Title>
-                  </Card.Body>
+              <Col key={book.asin}>
+                <Card
+                  style={{
+                    width: "10rem",
+                    marginTop: "1rem",
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={book.img}
+                    style={{
+                      width: "10rem",
+                      height: "10rem",
+                    }}
+                  />
                 </Card>
+                <Card.Title>{book.title}</Card.Title>
               </Col>
             );
           })}
